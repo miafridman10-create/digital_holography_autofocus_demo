@@ -1,7 +1,8 @@
 # Automatic Focusing in Digital Holography
-This repository demonstrates automatic focusing in digital holography (DHM) using sharpness metrics  
-(Tamura, Variance, Gradient, Laplacian). It includes reconstructed amplitude and phase results,  
-sharpness curves, and a demo video of the focusing process.
+This repository showcases automatic focusing in digital holography (DHM) using four sharpness metrics  
+(Tamura contrast, Variance, Gradient energy, and Laplacian variance). It presents reconstructed amplitude  
+and phase images at the best focus plane, sharpness curves across propagation distances, and a demo video  
+illustrating the focusing process.
 
 Note: The MATLAB source code is not included in this repository.  
 Since this project was part of a university course and may be reused as a future assignment,  
