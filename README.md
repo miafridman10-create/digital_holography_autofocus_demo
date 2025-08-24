@@ -1,7 +1,12 @@
 # Automatic Focusing in Digital Holography
+This repository demonstrates automatic focusing in digital holography (DHM) using sharpness metrics  
+(Tamura, Variance, Gradient, Laplacian). It includes reconstructed amplitude and phase results,  
+sharpness curves, and a demo video of the focusing process.
 
-This repository contains a single MATLAB script that performs automatic focusing in digital holography (DHM).  
-Starting from a single off-axis hologram, the script reconstructs the complex field, unwraps the phase, and determines the optimal focus distance using several sharpness metrics.
+Note: The MATLAB source code is not included in this repository.  
+Since this project was part of a university course and may be reused as a future assignment,  
+only the methodology, results, and demonstration video are provided here.
+
 
 ## Project Overview
 Digital holography is a technique that captures both the amplitude and phase of an optical wavefront, enabling 3D reconstruction of microscopic samples.  
@@ -21,17 +26,21 @@ This script implements an autofocus algorithm that scans a range of reconstructi
   - Laplacian variance  
 - Visualization of focus curves and reconstructed images at best focus  
 
-## Usage
-1. Place the script and a hologram image (e.g. `freqholo_0_2.png`) in the same folder  
-2. Open MATLAB and run the script  
-3. Adjust the parameters in the script if needed:
-   - `lambda` – laser wavelength (meters)  
-   - `pixel_size` – camera pixel size (meters)  
-   - `z_value_phase`, `z_value_amplitude`, `z_values` – propagation ranges (meters)  
-4. Outputs:
-   - Amplitude and unwrapped phase at best focus  
-   - Sharpness curves for amplitude, phase, and complex reconstructions  
-   - Best focus distances printed in console  
+## Methodology
+The autofocus script follows these main steps:
+
+1. Load and preprocess an off-axis hologram  
+2. Apply Fourier domain filtering and zero-padding to isolate a sideband  
+3. Perform inverse Fourier transform to reconstruct the complex field  
+4. Apply phase unwrapping (DCT-based least squares method)  
+5. Propagate the field using Fresnel propagation over a range of distances  
+6. Evaluate sharpness using four metrics:
+   - Tamura contrast  
+   - Variance  
+   - Gradient energy  
+   - Laplacian variance  
+7. Identify the best focus plane and visualize amplitude and phase reconstructions  
+
 
 ## Example Results
 - Amplitude and phase reconstructions at optimal distances  
